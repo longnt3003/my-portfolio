@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Global */
+html,
+body {
+  font-family: "Fira Code", monospace;
+}
+
+/* Slick arrows */
+.slick-prev,
+.slick-next {
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 20;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #13bbff !important;
+  font-size: 28px !important;
+  opacity: 0.6 !important;
+  transition: all 0.2s ease;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1 !important;
+  text-shadow: 0 0 12px rgba(19, 187, 255, 0.6);
+}
+
+.slick-prev {
+  left: -40px !important;
+}
+
+.slick-next {
+  right: -40px !important;
+}
+
+/* Slick dots */
+.slick-dots {
+  bottom: -30px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: #6b7280 !important;
+  opacity: 1 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #13bbff !important;
+}
