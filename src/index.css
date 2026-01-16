@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-/* Global */
-html,
-body {
-  font-family: "Fira Code", monospace;
-}
-
 /* Slick arrows */
 .slick-prev,
 .slick-next {

@@ -4,7 +4,6 @@ import { FaArrowUp } from "react-icons/fa";
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
-  // theo dõi scroll
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
@@ -17,7 +16,6 @@ export default function BackToTop() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // scroll lên đầu
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

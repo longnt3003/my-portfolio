@@ -1,4 +1,8 @@
+"use client";
+
 import { useState, useEffect } from "react";
+import { navLinks } from "../../data/nav";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -13,9 +17,7 @@ export default function Header() {
         const offset = sec.offsetTop - 150;
         const height = sec.offsetHeight;
         const id = sec.getAttribute("id");
-        if (id && top >= offset && top < offset + height) {
-          current = id;
-        }
+        if (id && top >= offset && top < offset + height) current = id;
       });
       setActiveSection(current);
     };
@@ -26,15 +28,7 @@ export default function Header() {
   const handleScrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-
-    const headerOffset = 80;
-    const offsetPosition = el.offsetTop - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-
+    window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
     setOpen(false);
   };
 
@@ -48,7 +42,6 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full bg-[#1b1f24] border-b border-gray-700 z-50">
       <div className="flex items-center justify-between px-6 py-4">
-        {/* Logo */}
         <button
           onClick={() => handleScrollTo("home")}
           className="text-2xl font-extrabold transition-all duration-300 ease-in-out hover:[text-shadow:0_0_15px_#13bbff]"
@@ -56,26 +49,26 @@ export default function Header() {
           <span className="text-white">LongNT</span>
           <span className="text-[#13bbff]">.Dev</span>
         </button>
-
-        {/* Mobile toggle */}
         <button
           className="text-[#13bbff] text-2xl md:hidden"
           onClick={() => setOpen(!open)}
         >
-          <i className={`fa-solid ${open ? "fa-x" : "fa-bars"}`}></i>
+          {open ? <FaTimes /> : <FaBars />}
         </button>
-
-        {/* Navigation */}
         <nav
-          className={`md:flex md:gap-6 ${
-            open ? "block" : "hidden"
-          } md:block bg-black/80 md:bg-transparent md:static absolute right-0 top-full w-1/2 md:w-auto rounded-bl-2xl md:rounded-none backdrop-blur-lg md:backdrop-blur-0`}
+          className={`absolute right-0 top-full w-1/2 bg-black/80 rounded-bl-2xl backdrop-blur-lg md:static md:w-auto md:bg-transparent md:rounded-none md:backdrop-blur-0 flex flex-col gap-4 p-4 md:flex md:flex-row md:gap-6 md:p-0 transform transition-transform duration-300 ease-in-out ${
+            open ? "translate-x-0" : "translate-x-full"
+          } md:translate-x-0 md:transform-none`}
         >
-          <button onClick={() => handleScrollTo("home")} className={linkClass("home")}>Home</button>
-          <button onClick={() => handleScrollTo("about")} className={linkClass("about")}>About</button>
-          <button onClick={() => handleScrollTo("skills")} className={linkClass("skills")}>Skills</button>
-          <button onClick={() => handleScrollTo("projects")} className={linkClass("projects")}>Projects</button>
-          <button onClick={() => handleScrollTo("contact")} className={linkClass("contact")}>Contact</button>
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => handleScrollTo(link.id)}
+              className={linkClass(link.id)}
+            >
+              {link.label}
+            </button>
+          ))}
         </nav>
       </div>
     </header>

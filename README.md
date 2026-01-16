@@ -3,7 +3,7 @@
 Personal portfolio website
 
 ## Demo
-[Live Site](https://2kthanhlong.github.io/My-Portfolio/)
+[Live Site](https://my-portfolio-six-fawn-11.vercel.app/)
 
 ## Tech Stack
 - React
@@ -13,7 +13,7 @@ Personal portfolio website
 
 ## Installation
 ```bash
-git clone https://github.com/2kThanhLong/my-portfolio-react.git
-cd my-portfolio-react
+git clone https://github.com/2kThanhLong/my-portfolio.git
+cd my-portfolio
 npm install
 npm run dev

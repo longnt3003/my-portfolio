@@ -1,40 +1,33 @@
-import Header from "./components/layouts/Header";
-import Hero from "./components/layouts/Hero";
-import About from "./components/layouts/About";
-import Skills from "./components/layouts/Skills";
-import Projects from "./components/layouts/Projects";
-import Contact from "./components/layouts/Contact";
-import Footer from "./components/layouts/Footer";
-import BackToTop from "./components/BackToTop";
+import MainLayout from "./components/layouts/MainLayout";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Skills from "./sections/Skills";
+import Projects from "./sections/Projects";
+import Contact from "./sections/Contact";
+import BackToTop from "./components/common/BackToTop";
 import { Toaster } from "react-hot-toast";
+
+const toastOptions = {
+  style: {
+    background: "#22282f",
+    color: "#fff",
+    border: "1px solid #13bbff",
+  },
+};
+
+const sections = [Hero, About, Skills, Projects, Contact];
 
 export default function App() {
   return (
-    <div className="font-sans bg-gray-900 text-white scroll-smooth">
-      <Header />
+    <>
+      <MainLayout>
+        {sections.map((Section, idx) => (
+          <Section key={idx} />
+        ))}
+      </MainLayout>
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-
-      <Footer />
       <BackToTop />
-
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          style: {
-            background: "#22282f",
-            color: "#fff",
-            border: "1px solid #13bbff",
-          },
-        }}
-      />
-    </div>
+      <Toaster position="top-right" toastOptions={toastOptions} />
+    </>
   );
 }
-
