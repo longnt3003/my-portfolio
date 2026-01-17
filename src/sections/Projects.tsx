@@ -21,7 +21,7 @@ export default function Projects() {
         setArrows(true);
       } else if (width >= 768) {
         setSlidesToShow(2);
-        setArrows(true);
+        setArrows(false);
       } else {
         setSlidesToShow(1);
         setArrows(false);
@@ -47,9 +47,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-[#22282f] py-10 md:py-24 px-4 md:px-6 text-white"
+      className="bg-[#22282f] py-16 md:py-24 px-4 md:px-6 text-white"
     >
-      <h2 className="mb-6 md:mb-14 text-center text-3xl md:text-6xl font-semibold tracking-wide">
+      <h2 className="text-center text-3xl md:text-6xl font-semibold tracking-wide mb-6 md:mb-12">
         My <span className="text-[#13bbff]">Projects</span>
       </h2>
 

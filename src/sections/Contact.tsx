@@ -21,7 +21,7 @@ export default function Contact() {
         "service_t6no7mt",
         "template_okdc0h9",
         form,
-        "AAGz_W-Cfqi5sSEmR"
+        "AAGz_W-Cfqi5sSEmR",
       )
       .then(() => {
         toast.success("Message sent successfully!", { id: "send" });
@@ -41,10 +41,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-[#1b1f24] min-h-screen py-16 md:py-32 px-4 text-white"
+      className="bg-[#1b1f24]  py-16 md:py-24 px-4 md:px-6 text-white"
     >
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-3xl md:text-6xl font-semibold tracking-wide">
+        <h2 className="text-center text-3xl md:text-6xl font-semibold tracking-wide mb-6 md:mb-12">
           Contact <span className="text-[#13bbff]">Me</span>
         </h2>
         <form

@@ -27,13 +27,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-[#22282f] text-white md:h-screen flex flex-col md:justify-center"
+      className="bg-[#22282f] text-white py-16 md:py-24 px-4 md:px-6"
     >
-      <div className="py-10 md:py-12">
-        <h2 className="text-center text-3xl md:text-6xl font-semibold">
-          About <span className="text-[#13bbff]">Me</span>
-        </h2>
-      </div>
+      <h2 className="text-center text-3xl md:text-6xl font-semibold tracking-wide mb-6 md:mb-12">
+        About <span className="text-[#13bbff]">Me</span>
+      </h2>
 
       <motion.div
         layout
