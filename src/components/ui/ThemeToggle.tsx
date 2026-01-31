@@ -4,9 +4,10 @@ import { cn } from "../../lib/utils";
 import React from "react";
 
 export const ThemeToggle: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(
-    () => localStorage.getItem("theme") === "dark",
-  );
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme === "dark" : true;
+  });
 
   useEffect(() => {
     if (isDarkMode) {
@@ -28,7 +29,8 @@ export const ThemeToggle: React.FC = () => {
         "focus:outline-hidden",
         "cursor-pointer",
       )}
-      aria-label="Toggle Theme">
+      aria-label="Toggle Theme"
+    >
       {isDarkMode ? (
         <Sun className="h-6 w-6 text-yellow-300" />
       ) : (
